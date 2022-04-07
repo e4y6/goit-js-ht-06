@@ -1,15 +1,11 @@
-const ListRef = document.querySelector("#categories");
-const headingsRef = document.querySelectorAll("h2");
-const secondaryListRef = document.querySelectorAll("#categories ul");
+let listItemsRef = document.querySelectorAll("#categories > .item");
 
-const countCategories = () =>
-  console.log(`Number of categories: ${ListRef.children.length}`);
-function getMessagess() {
-  for (let i = 0; i < headingsRef.length; i += 1) {
+function getLogs() {
+  console.log(`Number of categories: ${listItemsRef.length}`);
+  [...listItemsRef].map((item) => {
     console.log(" ");
-    console.log(`Category: ${headingsRef[i].textContent}`);
-    console.log(`Elements: ${secondaryListRef[i].children.length}`);
-  }
+    console.log(`Category: ${item.firstElementChild.textContent}`);
+    console.log(`Elements: ${item.lastElementChild.childElementCount}`);
+  });
 }
-countCategories();
-getMessagess();
+getLogs();
